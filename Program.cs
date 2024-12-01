@@ -4,10 +4,6 @@ using OpenQA.Selenium.Support.UI;
 using static SeleniumTesting.MyConsoleWriter;
 
 ChromeOptions options = new();
-options.AddArgument("--start-maximized");
-options.AddArgument("detach=false");
-options.BinaryLocation = $"./";
-
 
 ChromeDriver driver = new ChromeDriver(options);
 
@@ -115,7 +111,7 @@ void Stop()
 }
 
 Start();
-
-WriteInfo("Nyomd meg egy billentyűt a leálláshoz...");
+Console.WriteLine();
+WriteInfo("Nyomj meg egy billentyűt a leálláshoz...");
 Console.ReadKey();
 Stop();
