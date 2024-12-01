@@ -3,12 +3,14 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using static SeleniumTesting.MyConsoleWriter;
 
-ChromeOptions options = new ChromeOptions()
-{
-    PageLoadStrategy = PageLoadStrategy.Normal
-};
+ChromeOptions options = new();
+options.AddArgument("--start-maximized");
+options.AddArgument("detach=false");
+options.BinaryLocation = $"./";
 
-ChromeDriver driver = new ChromeDriver();
+
+ChromeDriver driver = new ChromeDriver(options);
+
 WriteInfo("ChromeDriver előkészítve!");
 
 CancellationTokenSource tokenSource = new CancellationTokenSource();
